@@ -498,74 +498,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <link rel='stylesheet' id='tablepress-default-css' href='https://www.eastex.com/wp-content/plugins/tablepress/css/build/default.css?ver=3.2.7' type='text/css' media='all' />
 <script type="text/javascript" src="https://www.eastex.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 <script type="text/javascript" src="https://www.eastex.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
-<script type="text/javascript" id="web-app-frontend-js-extra">
-/* <![CDATA[ */
-var HawthorneWebApps = {"ajaxurl":"https://www.eastex.com/wp-admin/admin-ajax.php","pluginurl":"https://www.eastex.com/wp-content/plugins/hawthorne/public/","ajax_nonce":"0928a805ad"};
-//# sourceURL=web-app-frontend-js-extra
-/* ]]> */
-</script>
+
 <script type="text/javascript" src="https://www.eastex.com/wp-content/plugins/hawthorne/public/assets/dist/hawthorne-dist.js?ver=1.7.7" id="web-app-frontend-js"></script>
 
-<link rel="canonical" href="https://www.eastex.com/customer-center/webmail-login/" />
-<script>document.documentElement.className += " js";</script>
-<style>.bg{opacity: 0; transition: opacity 1s; -webkit-transition: opacity 1s;} .bg-loaded{opacity: 1;}</style><script>
-(function ($) {
-    $(document).ready(function () {
 
-  $('.header-nav li.header-search>a').click(function (e) {
-            e.preventDefault();
-            if ($(this).hasClass('search-active')) {
-                $('.header-search li.header-search-form').css('width', '0');
-                setTimeout(function () {
-                    $('.header-nav li.header-search>a').removeClass('search-active');
-                }, 650);
-            } else {
-                $(this).addClass('search-active');
-                $('.header-search li.header-search-form').css('width', $('.header-main .header-nav.nav-right').innerWidth() - 50);
-            }
-        });
-
-        function news_grid_height() {
-            var maxTitleHeight = 45;
-            $('.news-grid.slider .box .post-title').removeAttr("style");
-
-            $('.news-grid.slider .box').each(function () {
-                var titleHeight = $(this).find('.post-title').height();
-                if (titleHeight > maxTitleHeight) {
-                    maxTitleHeight = titleHeight;
-                }
-            });
-
-            $('.news-grid.slider .box .post-title').css('min-height', (maxTitleHeight + 15) + 'px');
-        }
-        news_grid_height();
-        $(window).on("resize", news_grid_height);
-
-        function get_carousel($arrow) {
-            var $section, $slider, $carousel;
-            $section = $arrow.closest('.section').attr('id');
-            $slider = '#' + $section + ' .slider'
-            $carousel = $($slider).flickity(
-                $('.slider').data('flickity-options')
-            );
-            return $carousel;
-        }
-        // previous
-        $('.carousel-arrows .arrow-left').on('click', function (e) {
-            e.preventDefault();
-            $carousel = get_carousel($(this));
-            $carousel.flickity('previous');
-        });
-        // next
-        $('.carousel-arrows .arrow-right').on('click', function (e) {
-            e.preventDefault();
-            $carousel = get_carousel($(this));
-            $carousel.flickity('next');
-        });
-
-    });
-})(jQuery);
-</script>
+<!-- script copied -->
 
 <link rel="icon" href="https://www.eastex.com/wp-content/uploads/cropped-favicon-EastexTelephoneCooperative-32x32.png" sizes="32x32" />
 <link rel="icon" href="https://www.eastex.com/wp-content/uploads/cropped-favicon-EastexTelephoneCooperative-192x192.png" sizes="192x192" />
