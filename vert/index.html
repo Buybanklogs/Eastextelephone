@@ -1651,9 +1651,7 @@ Henderson, TX 75653-0150</p>
 
 	
 </div>
-<script type="speculationrules">
-{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/laurelhurst/*","/wp-content/themes/flatsome/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
-</script>
+
 <div id="google_translate_element" style="float:right;position:fixed;bottom:.5vw;right:1vw;z-index:99999;"></div>
 		<script type="text/javascript">
 			function googleTranslateElementInit() {
@@ -1663,139 +1661,7 @@ Henderson, TX 75653-0150</p>
 
 <!-- Broadband label header code -->
 
-<script>
-(() => {
-  var v = Object.create;
-  var p = Object.defineProperty;
-  var f = Object.getOwnPropertyDescriptor;
-  var $ = Object.getOwnPropertyNames;
-  var y = Object.getPrototypeOf,
-      w = Object.prototype.hasOwnProperty;
-  var k = (l, e) => () => (e || l((e = { exports: {} }).exports, e), e.exports);
-  var C = (l, e, s, i) => {
-      if ((e && typeof e == "object") || typeof e == "function")
-          for (let n of $(e))
-              !w.call(l, n) && n !== s && p(l, n, { get: () => e[n], enumerable: !(i = f(e, n)) || i.enumerable });
-      return l;
-  };
-  var P = (l, e, s) => ((s = l != null ? v(y(l)) : {}), C(e || !l || !l.__esModule ? p(s, "default", { value: l, enumerable: !0 }) : s, l));
-  var h = k(() => {
-      var _ = ".cf_bcl_wc:not([data-label-id=''])",
-          r = class l {
-              static broadbandLabelWidgetSet = new Set();
-              constructor(e) {
-                  (this.container = e), (this.labelId = e.getAttribute("data-label-id")), (this.endpoint = `https://app.broadbandconsumerlabels.com/api/v1/widget/${this.labelId}`), this.init();
-              }
-              fetchData() {
-                  return fetch(this.endpoint)
-                      .then((e) => e.json())
-                      .catch((e) => {
-                          console.error("Error fetching widget data:", e);
-                      });
-              }
-              render(e) {
-                let s = "",
-                    i = "";
-                e.one_time_fees && e.one_time_fees.length > 0
-                    ? ((i = e.one_time_fees.map((t) => `<dd class="bcl_list-none">${t.description}<span class="bcl_float-right">${t.fee}</span></dd>`).join("")),
-                      (s = `<dd class="bcl_h5 bcl_margin_top"> One-time Fees at the Time of Purchase </dd>`))
-                    : (s = `<dt class="bcl_h5 bcl_margin_top"> One-time Fees at the Time of Purchase <span class="bcl_float-right"> None </span></dt>`);
-                let n = "",
-                    m = "";
-                e.monthly_fees && e.monthly_fees.length > 0
-                    ? ((m = e.monthly_fees.map((t) => `<dd class="bcl_list-none">${t.description}<span class="bcl_float-right">${t.fee}</span></dd>`).join("")), (n = `<dd class="bcl_h5 bcl_remove_margin"> Provider Monthly Fees </dd>`))
-                    : (n = `<dd class="bcl_h5 bcl_remove_margin"> Provider Monthly Fees <span class="bcl_float-right"> None </span></dd>`);
-                let c = "";
-                e.discount_bundles &&
-                    e.discount_bundles.length > 0 &&
-                    (c = e.discount_bundles
-                        .map((t) => `<dd class="bcl_list-none"><a href="${t.url}" target="_blank" title="${t.url}" class="bcl_link" >${t.description}</a><span class="bcl_float-right">${t.amount}</span></dd>`)
-                        .join(""));
-                let o = "";
-                e.has_intro_rate
-                    ? (o = `<dd class="bcl_remove_margin"> This Monthly Price <b>is</b> an introductory rate.<br> This rate expires after ${e.intro_period} ${e.intro_period_duration}(s) and will revert to ${e.monthly_price} per month.<br></dd>`)
-                    : (o = `<dd class="bcl_remove_margin"> This Monthly Price <b>is not</b> an introductory rate. </dd>`);
-                let a = "";
-                e.has_contract
-                    ? (a = `<dd class="bcl_remove_margin"> This Monthly Price requires a ${e.contract_length} ${e.contract_duration}(s) contract.<br><a href="${e.contract_terms_url}" target="_blank" title="${e.contract_terms_url}" class="bcl_link" >Click Here</a > for contract terms. </dd>`)
-                    : (a = `<dd class="bcl_remove_margin"> This Monthly Price <b>does not</b> require a contract. </dd>`);
-                let u = e.has_intro_rate ? `${e.intro_price}` : `${e.monthly_price}`,
-                    b = "";
-                e.include_acp_disclosure &&
-                    (b = `<dl class="acp"><dt class="bcl_h4 bcl_remove_margin">Affordable Connectivity Program (ACP)</dt><dd class="bcl_remove_margin"> The ACP is a government program to help lower the monthly cost of internet service. To learn more about the ACP, including to find out whether you qualify, visit <a href="https://getinternet.gov" target="_blank" class="bcl_link">GetInternet.gov</a>. </dd><dd class="bcl_margin_top">Participates in the ACP <span class="bcl_float-right">${
-                        e.participate_in_acp ? "Yes" : "No"
-                    }</span></dd></dl><div class="clear-space bcl_remove_margin"></div>`);
-                let d = "";
-                e.include_discounts_and_bundles_section &&
-                    (e.use_custom_discounts_and_bundles_description
-                        ? (d = `<dl class="discounts"><dt class="bcl_h4 bcl_remove_margin">Discounts &amp; Bundles</dt>${e.custom_discounts_and_bundles_description}</dd>${c}</dl>`)
-                        : (d = `<dl class="discounts"><dt class="bcl_h4 bcl_remove_margin">Discounts &amp; Bundles</dt><dd class="bcl_remove_margin"><a href="${e.discounts_url}" target="_blank" title="${e.discounts_url}" class="bcl_link">Click Here</a> for available billing discounts and pricing options for broadband service bundled with other services like video, phone, and wireless service, and use of your own equipment like modems and routers. </dd>${c}</dl>`));
-                let g = `<div class="bcl_widget-container"><div class="bcl_title"><div class="bcl_h1 bcl_remove_margin">Broadband Facts</div></div><dl class="bcl_provider"><dt class="bcl_h2 bcl_remove_margin">${
-                    e.provider_name
-                }</dt><dt class="bcl_h3 bcl_remove_margin">${e.service_plan_name}</dt><dd class="bcl_remove_margin">${
-                    e.technology
-                } Broadband Consumer Disclosure </dd></dl><dl class="monthly"><dt class="bcl_h4 bcl_remove_margin"> Monthly Price <span class="bcl_float-right">${u}</span></dt><dd class="clear-space bcl_remove_margin"></dd>${o} ${a}</dl><dl class="additional-charges"><dt class="bcl_h4 bcl_remove_margin">Additional Charges &amp; Terms</dt>${n} ${m} ${s} ${i}<dd class="bcl_h5 bcl_margin_top"> Early Termination Fee <span class="bcl_float-right">${
-                    e.early_termination_fee ? e.early_termination_fee : "None"
-                }</span></dd><dd class="bcl_h5 bcl_remove_margin">Government Taxes <span class="bcl_float-right">${
-                    e.government_taxes
-                }</span></dd></dl><div class="clear-space bcl_remove_margin"></div>${d} ${b}<dl class="speeds"><dt class="bcl_h4 bcl_remove_margin">Speeds Provided with Plan</dt><dd class="bcl_remove_margin"> Typical Download Speed <span class="bcl_float-right">${
-                    e.download_speed
-                } ${e.download_speed_unit}</span></dd><dd class="bcl_remove_margin"> Typical Upload Speed <span class="bcl_float-right">${e.upload_speed} ${
-                    e.upload_speed_unit
-                }</span></dd><dd class="bcl_remove_margin"> Typical Latency <span class="bcl_float-right">${e.latency} ${
-                    e.latency_unit
-                }</span></dd></dl><div class="clear-space bcl_remove_margin"></div><dl class="data"><dt class="bcl_h4 bcl_remove_margin"> Data Included with Monthly Price <span class="bcl_float-right">${e.data_included_monthly} ${
-                    e.data_included_monthly_unit
-                }</span></dt><dd class="bcl_remove_margin"> Charges for Additional Data Usage <span class="bcl_float-right">${e.additional_data_price} / ${e.additional_data} ${
-                    e.additional_data_unit
-                }</span></dd></dl><div class="clear-space bcl_remove_margin"></div><dl class="policies"><dt hidden></dt><dd class="bcl_remove_margin"> Network Management <a href="${
-                    e.network_management_policy_url
-                }" target="_blank" title="${e.network_management_policy_url}" class="bcl_float-right bcl_link">Read our Policy</a ></dd><dd class="bcl_remove_margin"> Privacy <a href="${e.privacy_policy_url}" target="_blank" title="${
-                    e.privacy_policy_url
-                }" class="bcl_float-right bcl_link">Read our Policy</a></dd></dl><div class="clear-space bcl_remove_margin"></div><dl class="support"><dt class="bcl_h4 bcl_remove_margin">Customer Support</dt><dd class="bcl_remove_margin"> Contact Us: <a href="tel:${
-                    e.support_phone
-                }" target="_blank" title="${e.support_phone}" class="bcl_link">${e.support_phone}</a> /&nbsp; <a href="mailto:${e.support_email}" target="_blank" title="${e.support_email}" class="bcl_link">${
-                    e.support_email
-                }</a> /&nbsp; <a href="${e.support_url}" target="_blank" title="${e.support_url}" class="bcl_link">${
-                    e.support_url
-                }</a></dd></dl><div class="bcl_footer"><div class="bcl_remove_margin"> Learn more about the terms used on this label by visiting the Federal Communications Commission's Consumer Resource Center. </div><div class="bcl_remove_margin bcl_float-right"> &nbsp;<a href="https://fcc.gov/consumer" target="_blank" class="bcl_float-right bcl_link">fcc.gov/consumer</a></div><div class="bcl_remove_margin bcl_float-left">${
-                    e.unique_plan_id
-                }</div></div></div>`;
-                this.container.innerHTML = g;
-            }
-              init() {
-                  this.fetchData().then((e) => {
-                      this.render(e);
-                  });
-              }
-              static renderWidgetForId(e) {
-                  if (r.broadbandLabelWidgetSet.has(e)) return;
-                  let s = document.querySelector(`[data-label-id='${e}']`);
-                  if (!s) return;
-                  new r(s), r.broadbandLabelWidgetSet.add(e);
-              }
-          };
-      window.renderLabelWidget = (e) => {
-          r.renderWidgetForId(e);
-      };
-  });
-  h();
-})();
-</script>
-
-<script>
-jQuery(function($){
-    const labelMap = {
-        'a024x000009Ad3R':'FZzWhlKCMdI0'
-    }
-    $('body').on('click', '#form_fibersignup2 .frm_radio', function(){
-        const el = $(this);
-        const val = el.find('input').val();
-        const id = labelMap[val];
-        renderLabelWidget(id);
-    })
-})
-</script>			<script src='https://chat-assets.frontapp.com/v1/chat.bundle.js'></script>
+	<script src='https://chat-assets.frontapp.com/v1/chat.bundle.js'></script>
 			<script>
 			window.FrontChat('init', {chatId: '4db383a44c5780b0e8dcc223cf3f7e74', useDefaultLauncher: true});
 			</script>
@@ -1803,64 +1669,13 @@ jQuery(function($){
 <script type="text/javascript" src="https://www.eastex.com/wp-includes/js/jquery/ui/accordion.min.js?ver=1.13.3" id="jquery-ui-accordion-js"></script>
 <script type="text/javascript" src="https://www.eastex.com/wp-content/plugins/chkpt-package-builder/library/assets/js/crowdfiber.js?ver=1.0.0" id="crowdfiberjs-js"></script>
 <script type="text/javascript" src="https://www.eastex.com/wp-content/plugins/chkpt-package-builder/library/assets/js/slick.min.js" id="slick-slider-js-js"></script>
-<script type="text/javascript" id="slick-slider-js-js-after">
-/* <![CDATA[ */
 
-        jQuery(document).ready(function($) {
-            $('.chkpt-package-grid').slick({
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                arrows: true,
-                dots: true,
-                adaptiveHeight:true,
-                autoplay: false,
-                responsive: [
-                    {
-                        breakpoint: 1024, // Adjust for tablet or small desktop
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1,
-                        }
-                    },
-                    {
-                        breakpoint: 768, // Adjust for mobile
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                        }
-                    }
-                ]
-            });
-        });
-    
-//# sourceURL=slick-slider-js-js-after
-/* ]]> */
-</script>
-<script type="text/javascript" id="wdt-custom-avada-js-js-extra">
-/* <![CDATA[ */
-var wdt_ajax_object = {"ajaxurl":"https://www.eastex.com/wp-admin/admin-ajax.php"};
-//# sourceURL=wdt-custom-avada-js-js-extra
-/* ]]> */
-</script>
 <script type="text/javascript" src="https://www.eastex.com/wp-content/plugins/wpdatatables/integrations/starter/page-builders/avada/assets/js/wdt-custom-avada-js.js?ver=7.3.3" id="wdt-custom-avada-js-js"></script>
 <script type="text/javascript" src="https://www.eastex.com/wp-includes/js/hoverIntent.min.js?ver=1.10.2" id="hoverIntent-js"></script>
-<script type="text/javascript" id="flatsome-js-js-extra">
-/* <![CDATA[ */
-var flatsomeVars = {"theme":{"version":"3.18.6"},"ajaxurl":"https://www.eastex.com/wp-admin/admin-ajax.php","rtl":"","sticky_height":"90","stickyHeaderHeight":"0","scrollPaddingTop":"0","assets_url":"https://www.eastex.com/wp-content/themes/flatsome/assets/","lightbox":{"close_markup":"\u003Cbutton title=\"%title%\" type=\"button\" class=\"mfp-close\"\u003E\u003Csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-x\"\u003E\u003Cline x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"\u003E\u003C/line\u003E\u003Cline x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"\u003E\u003C/line\u003E\u003C/svg\u003E\u003C/button\u003E","close_btn_inside":true},"user":{"can_edit_pages":false},"i18n":{"mainMenu":"Main Menu","toggleButton":"Toggle"},"options":{"cookie_notice_version":"1","swatches_layout":false,"swatches_disable_deselect":false,"swatches_box_select_event":false,"swatches_box_behavior_selected":false,"swatches_box_update_urls":"1","swatches_box_reset":false,"swatches_box_reset_limited":false,"swatches_box_reset_extent":false,"swatches_box_reset_time":300,"search_result_latency":"0"}};
-//# sourceURL=flatsome-js-js-extra
-/* ]]> */
-</script>
+
 <script type="text/javascript" src="https://www.eastex.com/wp-content/themes/flatsome/assets/js/flatsome.js?ver=a0a7aee297766598a20e" id="flatsome-js-js"></script>
-<script id="wp-emoji-settings" type="application/json">
-{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://www.eastex.com/wp-includes/js/wp-emoji-release.min.js?ver=cace6af1e77a292a2ef7463342627c36"}}
-</script>
-<script type="module">
-/* <![CDATA[ */
-/*! This file is auto-generated */
-const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
-//# sourceURL=https://www.eastex.com/wp-includes/js/wp-emoji-loader.min.js
-/* ]]> */
-</script>
+
+
 
 </body>
 </html>
